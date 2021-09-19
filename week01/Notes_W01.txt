@@ -1,0 +1,30 @@
+https://mattwandcow.github.io/WDD330/
+
+Local Storage (https://www.w3schools.com/jsref/prop_win_localstorage.asp)
+	save item
+		localStorage.setItem("key","Value");
+	get item
+		value=localStorage.getItem("key");
+	delete value
+		localStorage.removeItem("key");
+		
+Master Mobile UX
+	Designing for the weakest device first puts content over display. Simplicity first
+	Desktop used to be the first priority, but now mobile should be
+	
+	Be there
+	Be useful
+	Be quick
+	Reachability
+		Think about thumbs and hand hold
+	speed matters
+		reduce images
+		svg/webfonts
+		Optimize and minify CSS and JS
+			reduce whitespace for more savings
+			Gzip files
+		Easy reach buttons *feel* faster
+	Always strive for amazing
+	"I have come to believe that advertising is the original sin of the web. The fallen state of our Internet is a direct, if unintentional, consequence of choosing advertising as the default model to support online content and services."
+	Ethan Zuckerman
+	https://www.theatlantic.com/technology/archive/2014/08/advertising-is-the-internets-original-sin/376041/
