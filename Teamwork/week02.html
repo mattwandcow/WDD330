@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <meta charset="utf-8">
+<head>
+</head>
+<body>
+        <input type="text" id="txtValue">
+        <button onclick="fill()" name="btnClick">Click Me</button>
+        <div id="buttonDisplay"></div>
+        <script>
+            function fill()
+            {
+                console.log("Wegot here");
+                txt=document.getElementById('txtValue').value;
+                console.log(txt);
+                
+                div=document.getElementById('buttonDisplay');
+                div.innerHTML=txt;
+            }
+        </script>
+
+        <input type="text" id="numberField">
+        <button onclick="calculate()">Add Up</button>
+        <div id="numberDisplay"></div>
+        <script>
+            function calculate()
+            {
+                console.log("Calcualate Functions");
+                txt=document.getElementById('numberField').value;
+                n=Number(txt);
+                console.log(n);
+                sum=0;
+                for(let i=0;i<=n;i++)
+                {
+                    console.log(i);
+                    sum+=i;
+                }
+
+                div=document.getElementById('numberDisplay');
+                div.innerHTML=sum;
+            }
+        </script>
+
+        <input type="text" id="numberA">
+        <input type="text" id="numberB">
+        <button onclick="process(1,add)">+</button>
+        <button onclick="process(2,subtract)">-</button>
+        <button onclick="process(3,multiply)">*</button>
+        
+        <div id="addDisplay"></div>
+        <script>
+            function process(selector,myCallback)
+            {
+                console.log("Calcualate Functions");
+                nA=Number(document.getElementById('numberA').value);
+                nB=Number(document.getElementById('numberB').value);
+                console.log(nA);
+                console.log(nB);
+                sum=0;
+                div=document.getElementById('addDisplay');
+                sum=myCallback(nA,nB);
+                div.innerHTML=sum;
+            }
+            function add(a,b)
+            {
+                return a+b;
+            }
+            let subtract = function(a,b) {
+                return a-b;
+            };
+            let multiply = (a,b) => {return a*b};
+            
+             
+        </script>
+</body>
