@@ -1,0 +1,20 @@
+"This is better because all the JavaScript is in one place, between the two script tags, instead of mixed with the HTML tags."
+"There's no need to actually use a semicolon to terminate a statement because JavaScript interpreters use a process called Automatic Semicolon Insertion (ASI). This will attempt to place semicolons at the end of lines for you. However, it can be error-prone and cause a number of automated services such as code minifiers and validators to not work properly."
+The toFixed() method rounds a number to a fixed number of decimal places: PI.toFixed(3);
+The best way to change a string to a number is to use the Number method. This will convert the string form of a number into an actual number: Number('23');
+Only 9 values are always false and these are known as falsy values:
+	* "" // double quoted empty string literal
+	* '' // single quoted empty string literal
+	* `` // empty template literal
+	* 0
+	* -0 // considered different to 0 by JavaScript!
+	* NaN
+	* false
+	* null
+	* undefined
+
+Exponents are a**b, a^b is bitwise XOR
+	
+=== returns true if and only if values are of the same data type and value.
+Arrow Functions
+	let fname = arg =>{/* Funtion Code here */}

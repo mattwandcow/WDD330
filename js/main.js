@@ -1,7 +1,11 @@
 const links=[
     {
         label: "Week 01 notes",
-        url: "week01/Notes_W01.txt"
+        url: "notes/Notes_W01.txt"
+    },
+    {
+        label: "Week 02 notes",
+        url: "notes/Notes_W02.txt"
     }
 ]
 
