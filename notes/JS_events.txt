@@ -1,0 +1,14 @@
+The addEventListener() method can also be called without a node, in which case it is applied to the global object,
+	usually the whole browser window.
+The target property returns a reference to the node that fired the event.
+
+function doSomething(event){
+	console.log(event.target);
+	console.log(event.type);
+}
+
+If you click on one of the<li>elements, you’re also clicking on the<ul>,<body>and<html>elements.
+	Either bubbles up by default
+	or capture from the top down by
+		ulElement.addEventListener('click', function, true);
+You can add the event listener to a parent, and target will be the child that was clicked

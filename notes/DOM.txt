@@ -1,0 +1,33 @@
+Getting elements ―getElementById,getElementsByClassName,getElementsByTagName,querySelector and querySelectorAll
+	There are some methods from DOM Level 0 that can still be employed to access commonly used elements. These include:
+	Document.body returns the body element of a web page, as we saw in the previous example.
+	Document.images returns a node list of all the images contained in the document.
+	Document.links returns a node list of all the<a>elements and<area>elements that have anhrefattribute.
+	Document.anchors returns a node list of all the<a>elements that have anameattribute.
+	Document.forms returns a node list of all the forms in the document. This will be used when we cover forms in Chapter 8.
+Every id attribute should be unique to just one element(Make sure you follow this rule – it's not enforced by the HTML parser,
+	but odd things can happen in your code if you have more than one element with the same ID).
+getElementsByTagName()	will return a live node list of all the elements with the tag name that is provided as an argument. 
+	For example, we can get all the list items (HTML tag of<li>) in the document using this code:
+	const listItems = document.getElementsByTagName('li');
+getElementsByClassName() will return a live node list of all elements that have the class name that is supplied as an argument.
+
+The classList property is a list of all the classes an element has. It has a number of methods that make it easier to modify the class of an element. It’s supported in all modern browsers and in Internet Explorer from version 10 onwards.
+
+The add method can be used to add a class to an element without overwriting any classes that already exist. 
+	wonderWoman.classList.add('warrior');
+	wonderWoman.classList.remove('warrior');
+	wonderWoman.classList.toggle('warrior');
+	wonderWoman.classList.contains('warrior');
+Adding to DOM
+	document.createElement('li');		// creates a DOM object
+	document.createTextNode('Value');	// creates some text
+	parent.appendChild(child);			// add child at the bottom of parent
+		can also be used to move an existing child to the botton
+	parent.insertBefore(child, brother) // adds child to parent before Brother
+	parent.removeChild(child)			// gets rid of it
+	parent.replaceChild(new,old)		// replaces old child with new child
+	parent.innerHTML("Text")			// a great way to insert a lot of HTML
+creating a function that takes parameters, does logic, and returns a DOM can be useful
+
+parent.innerHTML() returns a sting of everything inside of it. 

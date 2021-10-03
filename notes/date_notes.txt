@@ -1,0 +1,6 @@
+Blah = new Date() // defaults to current
+blah.toString() // prints 'Tue Feb 14 2017 16:35:18 GMT+0000 (GMT)'
+A lot of formats for dates as arguments fot constructor
+
+Remember that computer programs start counting at zero, so January is 0, February is 1, and so on up to December, which is 11.
+Plenty of get and set methods

@@ -1,0 +1,32 @@
+Math.PI 		// returns the number
+Math.SQRT2 		//the square root of 2 is hardcoded
+Math.SQRT1_2	// the reciprocal of sqrt2 is also saved
+Math.E 			// EUler's
+Math.LN2 		// Natural log 2
+Math.LN10		// Natural Log 10
+Math.LOG2E		// Natural Log base 2 of E
+Math.LOG10E		// Natural Log base 10 of E
+
+Math.abs(x)		// Absolute value
+Rounding
+	Math.ceil(x)	// Forces a round up, or stays if already integer
+	Math.floor(x)	// Forces a round down, or stays if already integer
+	Math.round(x)	// Rounds per normal rules, or stays if already integer
+	Math.trunc(x)	// Returns integer part of number
+Powers
+	Math.exp(x)		// E^x
+	Math.pow(x,y)	// x^y
+	Math.sqrt(x)	// Returns Square Root of x
+	Math.cbrt(x)	// Returns Cube Root of x
+	Math.hypot(a,b)	// Returns sqrt(a^2+b^2) for finding hypotanuse
+Logs
+	Math.log(x)		// Returns Natural log of x
+	Math.log2(x)	// Returns log base 2
+	Math.log10(x)	// Returns log base 10
+Math.max(x,y,z) 	// Returns highest value
+Math.min(x,y,z) 	// Returns lowest value
+Trig
+	Math.sin, cos, tan, asin, acos, atan
+	Math.sinh, cosh, tanh for hyperbolic functions (?)
+Random
+	Math.random		// Returns a number 0<=X<1

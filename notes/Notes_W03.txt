@@ -1,0 +1,54 @@
+Functions can be added to a class after creation
+	let classType={};
+	function fName(){ /*some code*/ };
+	classType.fName=fName;  //no parens for assigning
+	classType.fName();	  //runs function
+
+'This' is evaluated at runtime.
+	Normally refers to object calling function using it
+	Undefined if somehow called without obj.function
+		Because apparently, classType['functionName'] works as if classType was an array
+	Arrow Functions work sa if the code was injected into parent, instead of being run seperate
+
+The fact that objects in JS act like an assoc array is crazy to me. It makes sense, as functions can be passed and saved and such
+	but being  able to access an object's function by going classInstance['functionName'] feels wrong.
+
+Object literal is created without a class definition by putting stuff in curlys
+	objLiteral={name: 'Value', details: 'Other Values, functionName() { return name;}, setName(n){this.name=n;}'};
+	It's an assoc array, so you could have a parameter... _'other name':'More values'_ in quotes so space isn't error
+	"If a property’s name doesn’t follow the rules for naming variables..., it needs to be quoted. "
+
+"All objects are mutable at any time when a program is running.
+	This means that its properties and methods can be changed or removed,
+	and new properties and methods can be added to the object, even if it was declared using const."
+	WTF. There is no spoon???
+	add property to object		classInstance.city='Value'
+	remove property				delete classInstance.city
+
+Accessing things
+	classInstance.name 
+	classInstance['name']
+	classInstance["other"+" "+"name"] // this is how you get at a thing with 2 words
+	classInstance.city //returns undefined of accessing a property that doesn’t exist
+
+one line if
+	boolean ? [true result] : [false result]
+
+There's something with the Symbol type that feels beyond me
+
+Calling methods
+	classInstance.functionName();
+	classInstance['functionName']();
+
+checking to see if properties or methods exist
+	'keyValue' in classInstance;
+	classInstance.keyValue != undefined
+	classInstance.hasOwnProperty('keyValue')// returns false if no value, or if value was inherited
+
+Reveal all of a class
+	for (key in classInstance){
+		console.log(key + ": " + classInstance[key] + classInstance.hasOwnProperty(key) ? " Own property" : "");
+	}
+	you also can dump all of a class into an array by using Object.values(classInstance) or by Object.entries(classInstance)
+
+Objects are copied by Reference

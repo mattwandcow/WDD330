@@ -7,6 +7,36 @@ const links=[
         label: "Week 02 notes",
         url: "notes/Notes_W02.txt"
     }
+    ,
+    {
+        label: "Week 03 notes",
+        url: "notes/Notes_W03.txt"
+    }
+    ,
+    {
+        label: "Week 03 Json notes",
+        url: "notes/JSON_Notes.txt"
+    }
+    ,
+    {
+        label: "Week 03 Events notes",
+        url: "notes/JS_events.txt"
+    }
+    ,
+    {
+        label: "Week 03 DOM notes",
+        url: "notes/DOM.txt"
+    }
+    ,
+    {
+        label: "Week 03 date notes",
+        url: "notes/date_notes.txt"
+    }
+    ,
+    {
+        label: "Week 03 math notes",
+        url: "notes/Math_notes.txt"
+    }
 ]
 
 links.forEach(element =>{

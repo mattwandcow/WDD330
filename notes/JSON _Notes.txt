@@ -1,0 +1,3 @@
+JSON.parse(classInstance)// takes a string and returns an object
+JSON.stringify(classInstance)// turns an object into a JSON string
+JSON.stringify(classInstance, null, " ") adds new lines between key pairs, making it easier to read
