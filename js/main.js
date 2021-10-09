@@ -37,6 +37,11 @@ const links=[
         label: "Week 03 math notes",
         url: "notes/Math_notes.txt"
     }
+    ,
+    {
+        label: "Week 04 notes",
+        url: "notes/Notes_W04.txt"
+    }
 ]
 
 links.forEach(element =>{

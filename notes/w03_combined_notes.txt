@@ -1,0 +1,153 @@
+Functions can be added to a class after creation
+	let classType={};
+	function fName(){ /*some code*/ };
+	classType.fName=fName;  //no parens for assigning
+	classType.fName();	  //runs function
+
+'This' is evaluated at runtime.
+	Normally refers to object calling function using it
+	Undefined if somehow called without obj.function
+		Because apparently, classType['functionName'] works as if classType was an array
+	Arrow Functions work sa if the code was injected into parent, instead of being run seperate
+
+The fact that objects in JS act like an assoc array is crazy to me. It makes sense, as functions can be passed and saved and such
+	but being  able to access an object's function by going classInstance['functionName'] feels wrong.
+
+Object literal is created without a class definition by putting stuff in curlys
+	objLiteral={name: 'Value', details: 'Other Values, functionName() { return name;}, setName(n){this.name=n;}'};
+	It's an assoc array, so you could have a parameter... _'other name':'More values'_ in quotes so space isn't error
+	"If a property’s name doesn’t follow the rules for naming variables..., it needs to be quoted. "
+
+"All objects are mutable at any time when a program is running.
+	This means that its properties and methods can be changed or removed,
+	and new properties and methods can be added to the object, even if it was declared using const."
+	WTF. There is no spoon???
+	add property to object		classInstance.city='Value'
+	remove property				delete classInstance.city
+
+Accessing things
+	classInstance.name 
+	classInstance['name']
+	classInstance["other"+" "+"name"] // this is how you get at a thing with 2 words
+	classInstance.city //returns undefined of accessing a property that doesn’t exist
+
+one line if
+	boolean ? [true result] : [false result]
+
+There's something with the Symbol type that feels beyond me
+
+Calling methods
+	classInstance.functionName();
+	classInstance['functionName']();
+
+checking to see if properties or methods exist
+	'keyValue' in classInstance;
+	classInstance.keyValue != undefined
+	classInstance.hasOwnProperty('keyValue')// returns false if no value, or if value was inherited
+
+Reveal all of a class
+	for (key in classInstance){
+		console.log(key + ": " + classInstance[key] + classInstance.hasOwnProperty(key) ? " Own property" : "");
+	}
+	you also can dump all of a class into an array by using Object.values(classInstance) or by Object.entries(classInstance)
+
+Objects are copied by Reference
+
+-- Dates --
+Blah = new Date() // defaults to current
+blah.toString() // prints 'Tue Feb 14 2017 16:35:18 GMT+0000 (GMT)'
+A lot of formats for dates as arguments fot constructor
+
+Remember that computer programs start counting at zero, so January is 0, February is 1, and so on up to December, which is 11.
+Plenty of get and set methods
+
+--DOM -- 
+
+Getting elements ?getElementById,getElementsByClassName,getElementsByTagName,querySelector and querySelectorAll
+	There are some methods from DOM Level 0 that can still be employed to access commonly used elements. These include:
+	Document.body returns the body element of a web page, as we saw in the previous example.
+	Document.images returns a node list of all the images contained in the document.
+	Document.links returns a node list of all the<a>elements and<area>elements that have anhrefattribute.
+	Document.anchors returns a node list of all the<a>elements that have anameattribute.
+	Document.forms returns a node list of all the forms in the document. This will be used when we cover forms in Chapter 8.
+Every id attribute should be unique to just one element(Make sure you follow this rule – it's not enforced by the HTML parser,
+	but odd things can happen in your code if you have more than one element with the same ID).
+getElementsByTagName()	will return a live node list of all the elements with the tag name that is provided as an argument. 
+	For example, we can get all the list items (HTML tag of<li>) in the document using this code:
+	const listItems = document.getElementsByTagName('li');
+getElementsByClassName() will return a live node list of all elements that have the class name that is supplied as an argument.
+
+The classList property is a list of all the classes an element has. It has a number of methods that make it easier to modify the class of an element. It’s supported in all modern browsers and in Internet Explorer from version 10 onwards.
+
+The add method can be used to add a class to an element without overwriting any classes that already exist. 
+	wonderWoman.classList.add('warrior');
+	wonderWoman.classList.remove('warrior');
+	wonderWoman.classList.toggle('warrior');
+	wonderWoman.classList.contains('warrior');
+Adding to DOM
+	document.createElement('li');		// creates a DOM object
+	document.createTextNode('Value');	// creates some text
+	parent.appendChild(child);			// add child at the bottom of parent
+		can also be used to move an existing child to the botton
+	parent.insertBefore(child, brother) // adds child to parent before Brother
+	parent.removeChild(child)			// gets rid of it
+	parent.replaceChild(new,old)		// replaces old child with new child
+	parent.innerHTML("Text")			// a great way to insert a lot of HTML
+creating a function that takes parameters, does logic, and returns a DOM can be useful
+
+parent.innerHTML() returns a sting of everything inside of it. 
+
+-- JS Events -- 
+The addEventListener() method can also be called without a node, in which case it is applied to the global object,
+	usually the whole browser window.
+The target property returns a reference to the node that fired the event.
+
+function doSomething(event){
+	console.log(event.target);
+	console.log(event.type);
+}
+
+If you click on one of the<li>elements, you’re also clicking on the<ul>,<body>and<html>elements.
+	Either bubbles up by default
+	or capture from the top down by
+		ulElement.addEventListener('click', function, true);
+You can add the event listener to a parent, and target will be the child that was clicked
+
+-- JSON -- 
+JSON.parse(classInstance)// takes a string and returns an object
+JSON.stringify(classInstance)// turns an object into a JSON string
+JSON.stringify(classInstance, null, " ") adds new lines between key pairs, making it easier to read
+
+-- Math --
+Math.PI 		// returns the number
+Math.SQRT2 		//the square root of 2 is hardcoded
+Math.SQRT1_2	// the reciprocal of sqrt2 is also saved
+Math.E 			// EUler's
+Math.LN2 		// Natural log 2
+Math.LN10		// Natural Log 10
+Math.LOG2E		// Natural Log base 2 of E
+Math.LOG10E		// Natural Log base 10 of E
+
+Math.abs(x)		// Absolute value
+Rounding
+	Math.ceil(x)	// Forces a round up, or stays if already integer
+	Math.floor(x)	// Forces a round down, or stays if already integer
+	Math.round(x)	// Rounds per normal rules, or stays if already integer
+	Math.trunc(x)	// Returns integer part of number
+Powers
+	Math.exp(x)		// E^x
+	Math.pow(x,y)	// x^y
+	Math.sqrt(x)	// Returns Square Root of x
+	Math.cbrt(x)	// Returns Cube Root of x
+	Math.hypot(a,b)	// Returns sqrt(a^2+b^2) for finding hypotanuse
+Logs
+	Math.log(x)		// Returns Natural log of x
+	Math.log2(x)	// Returns log base 2
+	Math.log10(x)	// Returns log base 10
+Math.max(x,y,z) 	// Returns highest value
+Math.min(x,y,z) 	// Returns lowest value
+Trig
+	Math.sin, cos, tan, asin, acos, atan
+	Math.sinh, cosh, tanh for hyperbolic functions (?)
+Random
+	Math.random		// Returns a number 0<=X<1

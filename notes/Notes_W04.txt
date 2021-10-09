@@ -1,0 +1,59 @@
+Week 04
+document.forms is an HTML collection of all forms in a document in the order they appear.
+const form = document.forms[0]; //returns first form on page
+	same as const form = document.getElementsByTagname('form')[0];
+Instead of index, can use name attribute
+	const form = document.forms.search;
+	be careful of nameschemes, naming a thing "submit" would access that function, not the object
+form.submit()    submits form without triggering the form submit event
+form.reset()    reloads the form back to the HTML values
+        Button with reset type does this automatic
+form.action    this property can set where the form sends data
+
+Form events
+Focus    occurs when an element is focused on
+blur    occurs when focus is lost
+change    occurs when focus is lost after a change was made
+
+Objects
+static methods are called on the Class itself, not on an instance of the object.
+
+Protypes
+JS makes a disctinction in an object between values in an object that have been set locally and what came from the Class's protype, the default values. 
+classInstance.hasOwnProperty('property'); returns true if it was set locally, returns Falls if inherited from prototype
+
+Class.prototype.property = 'Value'; changes the prototype and therefor values for *all* instances that inherit from the prototype, no matter when they were instantiated, as long as they haven't changed their local value.
+
+_property='value'; underscore indicates private property that sould be set/get instead of directly accessed. Unsure how enforced it is, or if it's good faith.
+
+inheritance
+JS supports only single inheritance
+
+class Child extends Parent{
+    constructor (value){
+        super(value);
+        this.property='values';
+        }
+    }
+super refers to parent class
+
+monkey-patching: adding methods to vanilla objects for extra functionality
+    Number.prototype.isEven=function(){ return this%2 === 0;}
+
+We can alter the innate get/set of a object's properties
+Object.defineProperty(classInstance, 'yearsToRetirement',{
+    get() {
+        if(this.age > this.retirementAge) { return 0; }
+        else { return this.retirementAge - this.age; }
+    },
+    set(value) {
+        this.age = this.retirementAge - value;
+        return value;
+    }
+});
+use:
+    classInstance.yearsToRetirement;
+>>20
+    classInstance.yearsToRetirement = 10;
+
+JS has a mechanic called Mixins that seems neat, but seems unessecary
