@@ -1,0 +1,15 @@
+System error ― there’s a problem with the system or external devices with which the program is interacting.
+    Programmer error ― the program contains incorrect syntax or faulty logic; it could even be as simple as a typo.
+    User error ― the user has entered data incorrectly, which the program is unable to handle.
+Srict Mode does more warnings and exceptions, for better coding
+    'use strict';
+        is in scope
+alert() stops the code until okay is clicked
+Tests
+    This is the first practical testing instruction I've ever seen, which is neat
+    Jest is testing framework
+    test('square root of 4 is 2', () => { expect(squareRoot(4)).toBe(2); });
+    enter folder with the file squareroot.test.js and enter jest -c {}
+    tests normally kept in seperate file from functions?
+    expect(factorsOf('twelve').toThrow();
+        tests for exceptions to bad data
