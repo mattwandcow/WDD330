@@ -1,0 +1,13 @@
+#list-box{
+	border: 1px solid black;
+	width:400px
+}
+#td-list{
+}
+.td-listitem{
+border-bottom: 1px solid red;
+height: 2em;
+}
+.td-strike{
+	text-decoration: line-through;
+}
