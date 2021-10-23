@@ -50,7 +50,7 @@ const links=[
     ,
     {
         label: "Week 06 To Do app",
-        url: "projects/todo"
+        url: "projects/todo/todo"
     }
 ]
 
