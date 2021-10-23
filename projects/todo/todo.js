@@ -5,23 +5,28 @@ let CURRENT_MODE = MODE_ALL;
 
 const taskList = [];
 
-const testList = [{
-	task: "Item 1",
-	strike: false
-}, {
-	task: "Item 2",
-	strike: true
-}, {
-	task: "Item 3",
-	strike: false
-}];
+
 
 function firstLoad() {
 	document.getElementById('new-task-button').addEventListener('click', () => {
 		addTask();
 	})
+	let storedList = JSON.parse(localStorage.getItem('taskList'));
+	console.log(storedList);
+	if (storedList == undefined) {
+		storedList=[];
+		storedList.push({
+			task: "Sample Item",
+			strike: false,
+			id: Date.now()
+		}, {
+			task: "Sample Finished Item",
+			strike: true,
+			id: Date.now()
+		});
+	}
 	//loads testing list. Replace with history
-	testList.forEach(element => {
+	storedList.forEach(element => {
 		taskList.push(element);
 	});
 	loadList();
@@ -47,10 +52,18 @@ function renderListItem(element) {
 	lItem = document.createElement('div');
 	lItem.setAttribute('id', element.id);
 	lItem.setAttribute('class', 'td-listitem');
-	if (element.strike)
-		lItem.classList.add('td-strike');
 	strikeBtn = document.createElement('button');
-	strikeBtn.innerHTML = "Strike Icon"
+	if (element.strike)
+	{
+		lItem.classList.add('td-strike');
+		//strikeBtn.innerHTML = "Strike Icon"
+		//strikeBtn.innerHTML = '<img src="task_done.png" alt="Task Complete!" class="task-bar-img" >'
+		strikeBtn.classList="task-button strike"
+	}
+	else{
+		//strikeBtn.innerHTML = '<img src="task.png" alt="Task Remains!" class="task-bar-img">'
+		strikeBtn.classList="task-button"
+	}
 	strikeBtn.addEventListener('click', () => {
 		strikeTask(element)
 	})
@@ -61,7 +74,8 @@ function renderListItem(element) {
 	lItem.appendChild(spanItem);
 
 	delBtn = document.createElement('button');
-	delBtn.innerHTML = "Delete Icon"
+	//delBtn.innerHTML = "delete-button";
+	delBtn.classList = "delete-button";
 	delBtn.addEventListener('click', () => {
 		deleteTask(element)
 	})
@@ -71,6 +85,7 @@ function renderListItem(element) {
 
 function renderListConsole(lenght, mode) {
 	lItem = document.createElement('div');
+	lItem.id="task-console";
 	countSpan = document.createElement('span');
 
 	btnAll = document.createElement('button');
@@ -95,15 +110,15 @@ function renderListConsole(lenght, mode) {
 	})
 	switch (mode) {
 		case MODE_OPEN:
-			countSpan.textContent = "Tasks left: " + lenght;
+			countSpan.innerHTML = "Tasks left: " + lenght;
 			btnOpen.classList.add('active');
 			break;
 		case MODE_ALL:
-			countSpan.textContent = "Tasks left: " + lenght;
+			countSpan.innerHTML = "Tasks left: " + lenght;
 			btnAll.classList.add('active');
 			break;
 		case MODE_DONE:
-			countSpan.textContent = "Completed Task: " + lenght;
+			countSpan.innerHTML = "Completed Task: " + lenght;
 			btnDone.classList.add('active');
 			break;
 
@@ -129,6 +144,7 @@ function addTask() {
 			strike: false,
 			id: Date.now()
 		});
+		localStorage.setItem('taskList', JSON.stringify(taskList));
 		loadList();
 	}
 }
@@ -137,7 +153,8 @@ function deleteTask(element) {
 	console.log("Trying to delete: " + element);
 	const index = taskList.indexOf(element);
 	if (index > -1) {
-		taskList.splice(element, 1);
+		taskList.splice(index, 1);
+		localStorage.setItem('taskList', JSON.stringify(taskList));
 		loadList();
 	}
 
@@ -146,5 +163,6 @@ function deleteTask(element) {
 function strikeTask(element) {
 	console.log(element);
 	element.strike ^= true;
+	localStorage.setItem('taskList', JSON.stringify(taskList));
 	loadList();
 }
