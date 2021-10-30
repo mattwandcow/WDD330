@@ -1,0 +1,42 @@
+Chapter 11: Further Functions
+    Functions can be passed like any object
+    All functions have a .length that returns the number of parameters
+    call method
+        functionName.call(value)
+        runs functionName() with 'this' set to value
+    function.apply(this_vallue, [array])
+        kinda looks like map, but in reverse
+    .cache
+        functions can store a value, allows them to do repeat evaluations with just a lookup. 
+An Immediately Invoked Function Expression – or IIFE – (pronounced 'iffy') is an anonymous function that, as the name suggests, is invoked as soon as it’s defined. 
+    Add () at end of function declaration
+    rewriting functions
+        You can reassign a value to a function, even from within the called function.
+function party(){
+   console.log('Wow this is amazing!');
+   party = function(){
+       console.log('Been there, got the T-Shirt');
+   }
+}
+Useful if a function has a bunch of complicated branches needed for version support or other conditions, but is consistently run once dealing with those branches. Replace the branches with the singular twig you need
+
+Generators use the ‘Yeild’ Keyword, which keep values in function’s memory
+Functional Programming
+    Rules
+        1. Only take values from arguments, not globals/states
+        2. Doesn’t change anything outside of arguments/returns
+        3. The same arguments yield the same results
+    Each function needs at least one argument, and must return some value
+Currying
+    A system where a wrapper function takes an argument, then calls a second function that uses some established value and the wrapper arguments, as a value
+
+	
+Sitepoint Chapter 13 Ajax
+Ajax: Asynchronous JavaScript and XML:
+Fetch API
+    fetch(‘URL’).then({do stuff}).catch({on fail})
+    fetch(URL).then(response=>{
+        response.text() //gets the response as a string
+        response.blob()// gets binary object
+        response.json()// gets the response as json
+    }).catch()
