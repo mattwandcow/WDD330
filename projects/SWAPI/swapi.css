@@ -1,0 +1,71 @@
+#list-box{
+	border: 3px solid black;
+	width:400px;
+	background-color: cornflowerblue;
+}
+#list-box h2{
+text-align: center;
+color: whitesmoke;
+}
+
+.td-listitem{
+border-bottom: 1px solid skyblue;
+min-height: 2em;
+padding-top: 25px;
+padding-bottom: 25px;
+padding-left: 15px;
+padding-right: 15px;
+
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+#td-list{
+	border: 2px solid black;
+	background-color: white;
+}
+.td-listitem span{
+	font-size: 1.3em;
+	max-width: 250px;
+}
+
+.td-strike{
+	text-decoration: line-through;
+}
+.task-button{
+    height: 50px;
+    width: 50px;
+	background-image: url( 'task.png' );
+	background-size: 50px 50px;
+}
+.task-button:hover{
+	background-image: url( 'task_hover.png' );
+}
+.task-button.strike{
+	background-image: url( 'task_done.png' );
+}
+#task-console{
+	padding: 15px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+#task-console button{
+	margin: 5px;
+	font-size: 1.2em;
+}
+#task-input{
+	display: flex;
+	margin: 5px;
+	font-size: 1.2em;
+	justify-content: center;
+}
+.delete-button{
+	background-image: url( 'trash_plain.png' );
+	height: 50px;
+	width: 50px;
+	background-size: 50px 50px;
+}
+.delete-button:hover{
+	background-image: url( 'trash_open.png' );
+}
