@@ -1,0 +1,164 @@
+Week 8: Chapter 8
+Const form_holder=Document.forms[0]
+returns an HTML collection of all forms on the page
+We would need to grab the specific form, Document.forms[0]
+Or call it by name instead Document.forms.formname
+form_holder.submit()         //submits the form
+form_holder.reset()        //resets changes to form
+    Button can also have type “reset” and do this
+Form_holder.action property can be set to different URLs
+
+Forms have special events
+    Focus         //activates when the form receives focus
+    Blur        //activates when th form loses focus
+    Change    //activates when the form loses focus after a change was made
+     Submit        //activates when the form is submitted
+        Adding a listener intercepts the sending of data to the server
+        preventDefault() stops the data being sent to the server, as well as page navigation
+
+Get the text from a drop down menu item 
+form.city.options[form.city.selectedIndex].text
+Chapter 12
+Object Oriented stuff? Feels like I might want to do some sample code instead of taking notes. Still, using classes for a project, so let’s see what I find using sitepoint as my reference.
+
+Constructors:
+    Use capital name of class as convention
+    Let die_instance = new Dice (desired_sides);
+Static:
+    Static keyword used in front of function definition lets the function be called without an instantiated class
+Week 8 CSS Notes 
+CSS Transform property allows translation, rotation, scale, and skew any element
+    the value of transform property is a transform function
+        "transform: function(args);"
+    Transforms need to be on inline elments. 
+    Transforms nees to be declared as one line. A new transform property replaces the previous values
+    Transformations don't change flow of the page
+translate(x, x)
+    measured from the top left corner
+    translateX(x), translateY(y), do one degree of movement
+scale(modifer), scale(x-mod, y-mod), scaleX(x-mod),scaleY(y-mod)
+    Scales from center of element. (the transform-origin property can change that)
+    a modifer of .5    is 50%, so half the dimesion 
+    a modifer of 1 is 100%, so normal dimesion
+    a modifer of 2 is 200%, so double dimesion
+rotate(degrees)
+    uses '10deg' as the value
+    positive is clockwise
+skew(x, y), skew(x), skewX(x), skewY(y)
+    uses degrees
+transform-origin
+    default is 50% 50%, meaning the center of element
+    "transform-origin: 0 0" sets the point to the top left
+Transitions 
+    transiitions are UI enhancements, and "fail Accessibly
+    Any transform can have a transition
+    transitions are declared in the default state block
+    there is a shorthand version of the properties
+    Animation using the first and last keyframe, then tweening
+    any property that can have a defined midpoint can transition
+        Things with numbers, like size, are fine. Things like border-style aren't able to
+        List: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
+    Process
+        1. set up normal styling (including explicitly declaring things that will be changed)
+        2. Declare CSS rule where transition happens (say on :hover)
+        3. Declare the tranistion properties to control timings
+transition-duration
+    "2s" is 2 seconds, "2ms" is miliseconds
+    200ms, or 0.2s is generally considered the "optimum time for a transition"
+transition-timing-function
+    lets you control the flow of the animation
+    ease        slow start, then speeds up, ends slowly
+    linear        consistant speed
+    ease-in        slow start, gains speed, sudden stop
+    ease-out    starts at speed, slows down
+    ease-in-out    like ease, but starts faster
+    define own using "cubic-bezier(0, 0, 1, 1)"
+        O-o book says it takes 6 years of calculas to know how this function works 
+    steps function can be used to move things part way?
+transition-delay
+    "A 50ms delay is enough time to wait to be sure they are intentionally hovering over our advertisement"
+    a negative delay starts immediately, but also starts part way into the animation
+multiple transitions
+    "transition-property: transform, color;" says "Work these 2"
+    defaults to same values, but commas can be used to treat things different
+        transition-property: transform, color; 
+        transition-duration: 0.2s, 0.1s;
+    for shorthand, group values of each transitioning piece
+        transition: transform 0.2s ease-out 50ms, color 0.1s linear 50ms;
+    all keyword can be used to do a bunch at once
+        transition: all 0.2s ease-out 50ms;
+animations
+    @keyframes myAnimation { // this is effectively defning a function
+        0%    { /* starting state CSS */}
+        10%, 40%{ /* mark keyframes and what the state should be */}
+        100%    { /* ending state CSS */}
+    }
+animation properties
+    there's a shorthand for people who are crazy/confident
+    "animation-name: myAnimation" attaches keyfram function to animation
+    animation-duration
+        "animation-duration: 300ms;" //defaults to 0s duration if not declared 0-o
+    animation-timing-function
+        uses the same options transition-timing-function
+        "animation-timing-function: steps(4, start);" //shows frames 0%, 25%, 50%, 75%
+        "animation-timing-function: steps(4, end);" //shows frames 25%, 50%, 75%, 100%
+    animation-iteration-count
+        how many times the animaition plays. 
+        defaults to 1, infinite is an option
+animation-direction
+    normal moves from 0 to 100
+    reverse moves from 100 to 0
+    alternate moves from 0 to 100 on first animation, then 100 to 0 on the second, then 0-100, repeats
+    alternate-revers moves from 100 to 0 on first animation, then 0 to 100 on the second, then 100-0, repeats
+    In reverse, Animation timings like ease-in are reversed to ease-out
+animation-delay is how long until the animation starts
+animation-fill-mode
+    none        default. frames don't exist beyond animation
+    forwards    last frame sticks around
+    backwards    first frame is set once animation is set up
+    both        forwards and backwards are applied
+##include a picture of color circles table?
+animation-play-state
+    either 'running' or 'paused'. A way to use JS and CSS to control animation
+-webkit- prefix is required on webkit browsers to make certain things work, I guess?
+
+Week 8 Ch12 CSS
+Canvas
+Canvas
+    lets people draw on the page with JS
+    document object <canvas></canvas>
+        can include a message between the tags for browsers w/o canvas support
+        height and width should be set inline, not css, so that the draw functions have useful coordinates
+    no default stylings, hard to see where begins and ends. So add a border
+    3d?  http://www.khronos.org/webgl/.
+    colors can be any CSS color, or rgb(r,g,b) or rgba(r,g,b,a) for semitransparent
+    canvases can be saved to an image
+Js code
+    var canvas = document.getElementById("myCanvas"); //grab the canvas element
+    var context = canvas.getContext("2d"); // get the context of where to draw
+    context.strokeStyle = "red"; //set the brush color to red
+    context.fillStyle = "blue"; //set fill color to blue
+        could also have been set to a CanvasGradient or CanvasPattern
+        canvas patterns can be created from images
+no built in method for drawing a circle, but it can be built with paths
+    Paths start with .beginPath(), end with .closePath()
+    need stroked or filled to be drawn
+arc method draws a curve: arc(x, y, radius, startAngle, endAngle, [clockwise=false])
+    angles are in radians, so a full circle starts at 0 and goes to Math.PI*2
+There's a lot to canvas, its a full graphics API. it can work with images and text, and can apparently overlay video? neat. But I'm going to look up more specifics when I need them
+
+SVG - Scalable Vector Graphics
+    describe vectors using XML (did not know about the XML)
+    Vector graphics can be infinitely scaled without losing details
+
+Drawing a circle with SVG
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+        <circle cx="50" cy="50" r="25" fill="red"/>
+        <desc> A description of the SVG</desc>
+    </svg>
+A rectangle: <rect x="10" y="10" width="100" height="100" fill="blue" stroke="red" stroke-width="3"/> 
+More complicated object gets crazy. Use a vector program to make things
+Raphael library can control Svg
+
+Drag and Drop
+    Another neat thing, possibly useful for games? Idk. It feels like a toy instead of a tool. I might have to research it more to see if this is a thing worth really learning.

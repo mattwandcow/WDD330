@@ -1,15 +1,16 @@
 import Alchemist from "./alchemist.js";
 import Render from "./render.js";
 
+
+
 let alc = Alchemist.loadFromStorage();
 //console.log(alc);
-if(alc == null)
-{
+if (alc == null) {
 	//no alchemist in storage
-	alc=Alchemist.CreateDefaultAlchemist();
+	alc = Alchemist.CreateDefaultAlchemist();
 }
-const alc2=new Alchemist();
-console.log(typeof(alc));
+const alc2 = new Alchemist();
+console.log(typeof (alc));
 const POTION_LIST = [];
 
 //load potion list
@@ -19,27 +20,29 @@ POTION_LIST.push({
 });
 
 alc.saveToStorage();
-menu_base_state();
 
-function menu_base_state(){
-	document.getElementById('alchemist_stats').innerHTML=Render.renderAlchemistStats(alc);
-	document.getElementById('alchemy_display').innerHTML=Render.renderMenuOptions();
-}
-function menu_potion_status() {
-	console.log('potion status');
-}
-function menu_examine_inventory(){
-	console.log('exaimine inventory');
-}
-function menu_prepare_stations(){
-	
-	console.log('prepare stations');
-}
-function menu_broswe_shops(){
-	
-	console.log('browse shops');
-}
-function menu_begin_week(){
-	console.log('begin week');
+window.addEventListener('hashchange', function () {
+	console.log(location.hash);
+	loadContent()
+})
 
+function loadContent() {
+	if (!location.hash) {
+		location.hash = "#home";
+	}
+	document.getElementById("current_page").innerHTML = location.hash;
+
+	switch (location.hash) {
+		case '#home':
+			console.log();
+			document.getElementById('alchemy_display').innerHTML = Render.renderMenuOptions();
+			break;
+		case '#inventory':
+			document.getElementById('alchemy_display').innerHTML = Render.renderInventory(alc);
+			break;
+		default:
+			document.getElementById('alchemy_display').innerHTML = "No page Error"
+			break;
+	}
 }
+loadContent();

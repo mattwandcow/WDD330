@@ -7,6 +7,7 @@ export default class Alchemist {
 		this.profBonus=2;
 		this.gold=500;
 		this.stations=1;
+		this.supplies=25;
 		this.saveToStorage = function () {
 			localStorage.setItem('alchemist',JSON.stringify(this));
 			console.log("hate");}
@@ -21,6 +22,7 @@ export default class Alchemist {
 		loader.profBonus=oldalchemist.profBonus;
 		loader.gold=oldalchemist.gold;
 		loader.stations=oldalchemist.stations;
+		loader.supplies=oldalchemist.supplies;
 		return loader;
 	}
 	static CreateDefaultAlchemist(){

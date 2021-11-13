@@ -6,14 +6,22 @@ export default class Render {
 	}
 	static renderMenuOptions(){
 		return `
-		<button type="button" onclick="menu_potion_status()">View Potion Status</button>
-		<button type="button" onclick="menu_examine_inventory()">Examine Inventory</button>
-		<button type="button" onclick="menu_prepare_stations()">Prepare Alchemy Stations</button>
-		<button type="button" onclick="menu_broswe_shops()">Browse Shops</button>
-		<button type="button" onclick="menu_begin_week()">Begin New Week</button>
+		<a href="#potion_status">View Potion Status</a>
+		<a href="#inventory">Examine Inventory</a>
+		<a href="#prepare_stations">Prepare Alchemy Stations</a>
+		<a href="#shops">Browse Shops</a>
+		<a href="#begin_week">Begin New Week</a>
 		`;
 	}
-	static renderPotionStatus(alchemy){
-
+	static renderPrepareStations(alchemy){
+		
+	}
+	static renderInventory(alchemy){
+		return `
+		<a href="#home">Back to Menu</a>
+		<p>Number of Alchemy Stations: ${alchemy.stations}</p>
+		<p>Available Gold: ${alchemy.gold}</p>
+		<p>Available Alchemy Supplies: ${alchemy.supplies}</p>
+		`;
 	}
 }
