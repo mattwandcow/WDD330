@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Week 10 Notes</title>
+	<link rel="stylesheet" href="style.css">
+	<script src='scripts.js' defer></script>
+</head>
+
+<body>
+	<h2>Fetch()</h2>
+	<button onclick="clicker()">Display Message</button>
+	<div id='Hero-box'></div>
+
+	<h2>Basic Validation</h2>
+	<form>
+		<label for="phonedigits"> 
+			<span>Enter Phone number</span>
+			<input type="tel" id="phonedigits" pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$">
+		</label>
+	</form>
+
+	<h2>Intermediate Validation</h2>
+	<p>(Might need No Validate)</p>
+	<form>
+		<label for="userid">
+			<span>Enter username</span>
+		</label>
+			<input type="text" id="userid" name="userid" required minlength="4">
+			<span class="error"></span>
+		<button type="submit">Check Username</button>
+	</form>
+	<p>More samplese of validation in the PHP Motors site from Backend 1</p>
+</body>
+
+</html>

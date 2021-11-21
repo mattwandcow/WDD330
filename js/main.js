@@ -62,6 +62,11 @@ const links=[
         label: "Week 09",
         url: "projects/W09Notes"
     }
+    ,
+    {
+        label: "Week 10",
+        url: "projects/W10Notes"
+    }
 ]
 
 links.forEach(element =>{

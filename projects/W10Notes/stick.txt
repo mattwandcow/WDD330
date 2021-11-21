@@ -1,0 +1,1 @@
+I spent 2 hours trying to use a php file from my website and all I ended up with was this stupid text file
