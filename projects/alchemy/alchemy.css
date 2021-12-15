@@ -1,3 +1,69 @@
-a {
-	display: block;
+
+ul.menu{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+ul.menu>li{
+	display: inline;
+}
+.pot_name{
+	color: cadetblue;
+}
+.station{
+	color: forestgreen;
+}
+.job{
+	color: chocolate;
+}
+.run_btn{
+	padding: 10px;
+	margin: 5px;
+	width: 175px;
+	height: 50px;
+	background-color: cornsilk;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 25px;
+}
+.run_btn a{
+	text-decoration: none;
+	color: black;
+}
+.brewing_ani{
+	font-size: 3em;
+}
+.script_catalog{
+	display: flex;
+	flex-wrap: wrap;
+}
+.script_card{
+	width: 300px;
+	border: solid 1px black;
+	margin: 15px;
+	padding: 10px;
+}
+.inventory_card{
+	width: 300px;
+	border: solid 1px black;
+	margin: 15px;
+	padding: 10px;
+}
+
+.station_card{
+	width: 300px;
+	border: solid 1px black;
+	margin: 15px;
+	padding: 10px;
+}
+.stat_box{
+	width: 300px;
+	border: solid 1px black;
+	margin: 15px;
+	padding: 10px;
+}
+#alchemy_display{
+	display: flex;
+	flex-wrap: wrap;
 }
