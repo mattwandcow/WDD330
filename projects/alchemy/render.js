@@ -6,6 +6,7 @@ export default class Render {
 		<li><a href="#inventory">Inventory</a></li>
 		<li><a href="#scripts">Scripts</a></li>
 		<li><a href="#admin">Admin Menu</a></li>
+		<li><a href="https://experimentaldnd.wordpress.com/creations/">Get Rules</a></li>
 		</ul>
 		<p>Name: ${alchemy.name} || Level: ${alchemy.level} || Weeks: ${alchemy.weeks}|| Gold: ${alchemy.gold}</p>
 		`;
